@@ -42,15 +42,15 @@ public class DocumentHistoryCleanerTask extends AbstractContentHistoryTask {
 
     /**
      * Max revisions to keep in the version history.
-     * If this is set to a non-positive integer, then this option will be ignored.
+     * If this is set to a negative integer, then this option will be ignored.
      */
-    private long maxRevisions;
+    private long maxRevisions = -1L;
 
     /**
      * Max days to keep in the version history since the version created time.
-     * If this is set to a non-positive integer, then this option will be ignored.
+     * If this is set to a negative integer, then this option will be ignored.
      */
-    private long maxDays;
+    private long maxDays = -1L;
 
     /**
      * The versionable document variant node. i.e. the preview variant node which keeps the JCR version history.
@@ -100,7 +100,7 @@ public class DocumentHistoryCleanerTask extends AbstractContentHistoryTask {
 
     @Override
     protected void doExecute() throws RepositoryException {
-        if (maxDays <= 0L && maxRevisions <= 0L) {
+        if (maxDays < 0L && maxRevisions < 0L) {
             return;
         }
 
@@ -124,7 +124,7 @@ public class DocumentHistoryCleanerTask extends AbstractContentHistoryTask {
             }
         }
 
-        if (maxDays > 0L) {
+        if (maxDays >= 0L) {
             final long nowInMillis = System.currentTimeMillis();
             final long maxDaysInMillis = maxDays * DAY_IN_MILLIS;
 
@@ -142,19 +142,17 @@ public class DocumentHistoryCleanerTask extends AbstractContentHistoryTask {
             }
         }
 
-        if (maxRevisions > 0L) {
+        if (maxRevisions >= 0L) {
             final long revisionCount = versions.size();
             final long removeCount = revisionCount - maxRevisions;
 
-            if (removeCount > 0) {
-                for (long l = 0; l < removeCount; l++) {
-                    final Version version = versions.remove(0);
-                    final Calendar created = version.getCreated();
-                    getLogger().info("Removing surplus version, '{}' created on {} at {}, of document node at {}: {}",
-                            version.getName(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(created),
-                            version.getPath(), documentNode.getPath(), version.getName());
-                    versionHistory.removeVersion(version.getName());
-                }
+            for (long l = 0; l < removeCount; l++) {
+                final Version version = versions.remove(0);
+                final Calendar created = version.getCreated();
+                getLogger().info("Removing surplus version, '{}' created on {} at {}, of document node at {}: {}",
+                        version.getName(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(created),
+                        version.getPath(), documentNode.getPath(), version.getName());
+                versionHistory.removeVersion(version.getName());
             }
         }
     }

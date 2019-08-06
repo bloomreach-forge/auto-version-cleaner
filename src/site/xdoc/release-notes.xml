@@ -42,8 +42,7 @@
       <subsection name="1.0.0">
         <p class="smallinfo">Coming soon...</p>
         <ul>
-          <li>Initial release.</li>
-          <li>[<a href='https://issues.onehippo.com/browse/HIPFORGE-310'>HIPFORGE-310</a>] -         Version History Cleaner Forge Module
+          <li>[<a href='https://issues.onehippo.com/browse/HIPFORGE-310'>HIPFORGE-310</a>] -         [Version History Cleaner] Initial Version History Cleaner Forge Module
           </li>
         </ul>
       </subsection>

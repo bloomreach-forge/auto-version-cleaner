@@ -22,15 +22,15 @@ public class DocumentHistoryCleanerConfiguration {
 
     /**
      * Max revisions to keep in the version history.
-     * If this is set to a non-positive integer, then this option will be ignored.
+     * If this is set to a negative integer, then this option will be ignored.
      */
-    private long maxRevisions;
+    private long maxRevisions = -1L;
 
     /**
      * Max days to keep in the version history since the version created time.
-     * If this is set to a non-positive integer, then this option will be ignored.
+     * If this is set to a negative integer, then this option will be ignored.
      */
-    private long maxDays;
+    private long maxDays = -1L;
 
     public DocumentHistoryCleanerConfiguration() {
     }

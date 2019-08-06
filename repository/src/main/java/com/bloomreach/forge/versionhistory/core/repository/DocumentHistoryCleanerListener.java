@@ -25,7 +25,6 @@ import javax.jcr.Session;
 import javax.jcr.SimpleCredentials;
 
 import org.hippoecm.repository.HippoStdNodeType;
-import org.hippoecm.repository.api.HippoNodeType;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.event.HippoEventConstants;
 import org.onehippo.cms7.services.eventbus.Subscribe;
@@ -86,15 +85,23 @@ public class DocumentHistoryCleanerListener {
         try {
             session = daemonSession.impersonate(SYSTEM_CREDENTIALS);
 
-            final Node subjectNode = session.getNodeByIdentifier(subjectId);
-            final Node previewVariantNode = getPreviewVariantNode(subjectNode);
+            final Node documentHandleNode = session.getNodeByIdentifier(subjectId);
+            final Node previewVariantNode = getPreviewVariantNode(documentHandleNode);
 
             final DocumentHistoryCleanerTask task = new DocumentHistoryCleanerTask(session, previewVariantNode);
             task.setMaxDays(maxDays);
             task.setMaxRevisions(maxRevisions);
             task.execute();
+
+            session.save();
         } catch (Exception e) {
             log.error("Failed to clean revision history for the document () at {}.", subjectId, subjectPath, e);
+
+            try {
+                session.refresh(false);
+            } catch (RepositoryException re) {
+                log.error("Failed to refresh session.", re);
+            }
         } finally {
             if (session != null) {
                 session.logout();
@@ -102,13 +109,7 @@ public class DocumentHistoryCleanerListener {
         }
     }
 
-    private Node getPreviewVariantNode(final Node subjectNode) throws RepositoryException {
-        if (isPreviewVariantNode(subjectNode)) {
-            return subjectNode;
-        }
-
-        final Node handle = (subjectNode.isNodeType(HippoNodeType.NT_HANDLE)) ? subjectNode : subjectNode.getParent();
-
+    private Node getPreviewVariantNode(final Node handle) throws RepositoryException {
         for (NodeIterator nodeIt = handle.getNodes(handle.getName()); nodeIt.hasNext();) {
             final Node node = nodeIt.nextNode();
 
