@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE document PUBLIC
+  "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<!--
+  Copyright 2019 BloomReach, Inc. (https://www.bloomreach.com)
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<document>
+  <properties>
+    <title>Release Notes</title>
+  </properties>
+  <body>
+    <section name="Compatibility">
+      <table>
+        <tr>
+          <th>
+            Plugin Version
+          </th>
+          <th>
+            Hippo CMS Release Version
+          </th>
+        </tr>
+        <tr>
+          <td>1.x</td>
+          <td>13.x</td>
+        </tr>
+      </table>
+    </section>
+    <section name="Release Notes of 1.x">
+      <subsection name="1.0.0">
+        <p class="smallinfo">Coming soon...</p>
+        <ul>
+          <li>Initial release.</li>
+          <li>[<a href='https://issues.onehippo.com/browse/HIPFORGE-310'>HIPFORGE-310</a>] -         Version History Cleaner Forge Module
+          </li>
+        </ul>
+      </subsection>
+    </section>
+  </body>
+</document>

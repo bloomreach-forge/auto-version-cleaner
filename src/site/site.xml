@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2019 BloomReach, Inc. (https://www.bloomreach.com)
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<project name="BloomReach Version History Cleaner Documentation">
+
+  <skin>
+    <groupId>org.bloomreach.forge.mavenskin</groupId>
+    <artifactId>forge-maven-skin</artifactId>
+    <version>3.1.0</version>
+  </skin>
+
+  <custom>
+    <bloomreach>
+      <!-- Add a 'Fork me on GitHub' ribbon  -->
+      <gitHub>
+        <projectId>bloomreach-forge/version-history-cleaner</projectId>
+      </gitHub>
+    </bloomreach>
+  </custom>
+
+  <body>
+
+    <menu name="Home">
+      <item name="Introduction" href="index.html" />
+      <item name="Installation" href="install.html" />
+      <item name="Configuration" href="config.html" />
+      <item name="Release Notes" href="release-notes.html" />
+    </menu>
+
+    <menu ref="reports" />
+
+  </body>
+
+</project>
+

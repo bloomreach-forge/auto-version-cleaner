@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE document PUBLIC
+  "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<!--
+  Copyright 2019 BloomReach, Inc. (https://www.bloomreach.com)
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<document>
+  <properties>
+    <title>Installing BloomReach Version History Cleaner</title>
+  </properties>
+  <body>
+
+    <section name="Installing BloomReach Version History Cleaner">
+
+      <subsection name="Add Dependencies">
+        <p>
+          Make sure you have the forge Maven2 repository reference and dependency definition in the root pom.xml of your project.
+        </p>
+        <div class="brush: xml">
+          <source><![CDATA[
+    <repositories>
+
+      <!-- SNIP -->
+
+      <repository>
+        <id>hippo-maven2</id>
+        <name>Hippo Maven 2 Repository</name>
+        <url>https://maven.onehippo.com/maven2-forge//</url>
+      </repository>
+
+      <!-- SNIP -->
+
+    </repositories>
+
+    <!-- SNIP -->
+
+    <dependencyManagement>
+
+      <!-- SNIP -->
+
+      <dependencies>
+
+        <!-- SNIP -->
+
+        <!-- NOTE: You should set a property named 'version-history-cleaner.version' to a version of this plugin! -->
+
+        <dependency>
+          <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
+          <artifactId>version-history-cleaner-core</artifactId>
+          <version>${version-history-cleaner.version}</version>
+        </dependency>
+
+        <dependency>
+          <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
+          <artifactId>version-history-cleaner-repository</artifactId>
+          <version>${version-history-cleaner.version}</version>
+        </dependency>
+
+        <!-- SNIP -->
+
+      </dependencies>
+
+      <!-- SNIP -->
+
+    </dependencyManagement>
+    ]]></source>
+        </div>
+        <p>
+          And add the following dependencies to your application subproject.
+          That is, In either <code>cms-dependencies/pom.xml</code>.
+        </p>
+        <div class="brush: xml">
+          <source><![CDATA[
+    <dependencies>
+
+      <!-- SNIP -->
+
+      <dependency>
+        <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
+        <artifactId>version-history-cleaner-core</artifactId>
+        <version>${version-history-cleaner.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
+        <artifactId>version-history-cleaner-repository</artifactId>
+        <version>${version-history-cleaner.version}</version>
+      </dependency>
+
+      <!-- SNIP -->
+
+    </dependencies>
+    ]]></source>
+        </div>
+        <p>
+          Now, you're ready to use the plugin!
+        </p>
+      </subsection>
+
+    </section>
+
+  </body>
+
+</document>

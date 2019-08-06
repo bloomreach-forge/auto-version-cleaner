@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE document PUBLIC
+  "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<!--
+  Copyright 2019 BloomReach, Inc. (https://www.bloomreach.com)
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<document>
+  <properties>
+    <title>Configuring BloomReach Version History Cleaner</title>
+  </properties>
+  <body>
+
+    <section name="Configuring BloomReach Version History Cleaner">
+
+      <subsection name="Module Configuration Options">
+        <p>
+          BloomReach Version History Cleaner module is located and configured at
+          <code>/hippo:configuration/hippo:modules/version-history-cleaner</code>.
+        </p>
+        <div class="brush: plain">
+          <source><![CDATA[
+/version-history-cleaner:
+  jcr:primaryType: hipposys:module
+  hipposys:className: com.bloomreach.forge.versionhistory.core.repository.DocumentHistoryCleanerDaemonModule
+  /hippo:moduleconfig:
+    jcr:primaryType: hipposys:moduleconfig
+    default.max.days: 0
+    default.max.revisions: 3
+          ]]></source>
+        </div>
+
+        <p>The following configurations are supported.</p>
+
+        <table>
+          <tr>
+            <th>Property Name</th>
+            <th>Description</th>
+            <th>Default value</th>
+          </tr>
+          <tr>
+            <td>default.max.days</td>
+            <td>
+              The default maximum days to retain a version since its creation date time.
+              For example, if a version was created 10 days ago, and if this property is set to <code>7</code> (days),
+              then the version will be removed automatically when the document is published.
+              <br/>
+              If this is set to zero or a negative integer, then this option is ignored.
+            </td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>default.max.revisions</td>
+            <td>
+              The default maximum version count to retain for the document.
+              For example, if there are 10 versions for the document, and if this property is set to <code>5</code>,
+              then the 5 older versions will be removed automatically when the document is published, keeping the
+              5 newer versions.
+              <br/>
+              If this is set to zero or a negative integer, then this option is ignored.
+            </td>
+            <td>0</td>
+          </tr>
+        </table>
+
+        <p>
+          You can also override the configurations for specific document types.
+          For example, if you want to use different settings for <code>myproject:newsdocument</code>, then
+          just add all the overriding properties with prefixing them by the document type name instead of "<code>default</code>".
+          Here's an overriding example for <code>myproject:newsdocument</code> document type:
+        </p>
+
+        <table>
+          <tr>
+            <th>Property Name</th>
+            <th>Description</th>
+            <th>Default value</th>
+          </tr>
+          <tr>
+            <td>myproject:newsdocument.max.days</td>
+            <td>
+              The document type (<code>myproject:newsdocument</code>) specific configuration to override <code>default.max.days</code>.
+              <br/>
+              If this is set to zero or a negative integer, then this option is ignored.
+            </td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>myproject:newsdocument.max.revisions</td>
+            <td>
+              The document type (<code>myproject:newsdocument</code>) specific configuration to override <code>default.max.revisions</code>.
+              <br/>
+              If this is set to zero or a negative integer, then this option is ignored.
+            </td>
+            <td>0</td>
+          </tr>
+        </table>
+
+      </subsection>
+
+    </section>
+
+  </body>
+
+</document>
