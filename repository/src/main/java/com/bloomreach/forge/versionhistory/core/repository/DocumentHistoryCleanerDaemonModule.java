@@ -38,15 +38,14 @@ public class DocumentHistoryCleanerDaemonModule extends AbstractReconfigurableDa
     private static final Pattern DOCTYPE_PREFIXED_PROP_NAME_PATTERN = Pattern
             .compile("^([A-Za-z_\\-]+:[A-Za-z_\\-]+)\\.(.+)$");
 
-    private Session daemonSession;
     private DocumentHistoryCleanerConfiguration defaultConfig = new DocumentHistoryCleanerConfiguration();
     private Map<String, DocumentHistoryCleanerConfiguration> documentTypeConfigs = new HashMap<>();
     private DocumentHistoryCleanerListener documentHistoryCleanerListener;
 
     @Override
     protected void doConfigure(final Node moduleConfig) throws RepositoryException {
-        defaultConfig.setMaxDays(JcrUtils.getLongProperty(moduleConfig, "default.max.days", 0L));
-        defaultConfig.setMaxRevisions(JcrUtils.getLongProperty(moduleConfig, "default.max.revisions", 0L));
+        defaultConfig.setMaxDays(JcrUtils.getLongProperty(moduleConfig, "default.max.days", -1L));
+        defaultConfig.setMaxRevisions(JcrUtils.getLongProperty(moduleConfig, "default.max.revisions", -1L));
 
         documentTypeConfigs.clear();
 
@@ -82,7 +81,6 @@ public class DocumentHistoryCleanerDaemonModule extends AbstractReconfigurableDa
 
     @Override
     protected void doInitialize(final Session daemonSession) throws RepositoryException {
-        this.daemonSession = session;
         documentHistoryCleanerListener = new DocumentHistoryCleanerListener(daemonSession, defaultConfig,
                 documentTypeConfigs);
         HippoEventListenerRegistry.get().register(documentHistoryCleanerListener);

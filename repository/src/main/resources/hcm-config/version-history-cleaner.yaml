@@ -5,5 +5,5 @@ definitions:
       hipposys:className: com.bloomreach.forge.versionhistory.core.repository.DocumentHistoryCleanerDaemonModule
       /hippo:moduleconfig:
         jcr:primaryType: hipposys:moduleconfig
-        default.max.days: 0
-        default.max.revisions: 0
+        default.max.days: -1
+        default.max.revisions: -1
