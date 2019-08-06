@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/versionhistorycleanerdemo/hst:catalog:
+      jcr:primaryType: hst:catalog
+      /versionhistorycleanerdemo-catalog:
+        jcr:primaryType: hst:containeritempackage

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
+    <artifactId>version-history-cleaner-demo</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>version-history-cleaner-demo-cms-dependencies</artifactId>
+  <packaging>pom</packaging>
+  <name>BloomReach Version History Cleaner Demo CMS Dependencies</name>
+  <description>BloomReach Version History Cleaner Demo CMS Dependencies</description>
+  <dependencies>
+
+    <dependency>
+      <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
+      <artifactId>version-history-cleaner-core</artifactId>
+      <version>${version-history-cleaner.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
+      <artifactId>version-history-cleaner-repository</artifactId>
+      <version>${version-history-cleaner.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
+      <artifactId>version-history-cleaner-demo-repository-data-application</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-package-cms-dependencies</artifactId>
+      <type>pom</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-plugin-gallerypicker</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-plugin-resourcebundle-editor</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-plugin-selections-addon-cms</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-plugin-selections-addon-repository</artifactId>
+    </dependency>
+  </dependencies>
+</project>

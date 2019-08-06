@@ -1,0 +1,6 @@
+site: version-history-cleaner-demo
+group: version-history-cleaner-demo
+project: version-history-cleaner-demo
+module:
+  name: version-history-cleaner-demo-repository-data-site-development
+  after: version-history-cleaner-demo-repository-data-site

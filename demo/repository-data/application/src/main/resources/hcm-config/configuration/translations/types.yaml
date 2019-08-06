@@ -1,0 +1,90 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:translations/hippo:types/versionhistorycleanerdemo:eventsdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Event
+        versionhistorycleanerdemo:content: Content
+        versionhistorycleanerdemo:date: Start date
+        versionhistorycleanerdemo:enddate: End date
+        versionhistorycleanerdemo:image: Image
+        versionhistorycleanerdemo:introduction: Introduction
+        versionhistorycleanerdemo:location: Location
+        versionhistorycleanerdemo:title: Title
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Evenement
+        versionhistorycleanerdemo:content: Inhoud
+        versionhistorycleanerdemo:date: Startdatum
+        versionhistorycleanerdemo:enddate: Einddatum
+        versionhistorycleanerdemo:image: Afbeelding
+        versionhistorycleanerdemo:introduction: Introductie
+        versionhistorycleanerdemo:location: Locatie
+        versionhistorycleanerdemo:title: Titel
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Événement
+        versionhistorycleanerdemo:content: Contenu
+        versionhistorycleanerdemo:date: Date de début
+        versionhistorycleanerdemo:enddate: Date de fin
+        versionhistorycleanerdemo:image: Image
+        versionhistorycleanerdemo:introduction: Introduction
+        versionhistorycleanerdemo:location: Lieu
+        versionhistorycleanerdemo:title: Titre
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Event
+        versionhistorycleanerdemo:content: Inhalt
+        versionhistorycleanerdemo:date: Startdatum
+        versionhistorycleanerdemo:enddate: Enddatum
+        versionhistorycleanerdemo:image: Abbildung
+        versionhistorycleanerdemo:introduction: Einführung
+        versionhistorycleanerdemo:location: Standort
+        versionhistorycleanerdemo:title: Titel
+    /hippo:configuration/hippo:translations/hippo:types/versionhistorycleanerdemo:newsdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: News Item
+        versionhistorycleanerdemo:author: Author
+        versionhistorycleanerdemo:content: Content
+        versionhistorycleanerdemo:date: Date
+        versionhistorycleanerdemo:image: Image
+        versionhistorycleanerdemo:introduction: Introduction
+        versionhistorycleanerdemo:location: Location
+        versionhistorycleanerdemo:source: Source
+        versionhistorycleanerdemo:title: Title
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Nieuwsbericht
+        versionhistorycleanerdemo:author: Auteur
+        versionhistorycleanerdemo:content: Inhoud
+        versionhistorycleanerdemo:date: Datum
+        versionhistorycleanerdemo:image: Afbeelding
+        versionhistorycleanerdemo:introduction: Introductie
+        versionhistorycleanerdemo:location: Locatie
+        versionhistorycleanerdemo:source: Bron
+        versionhistorycleanerdemo:title: Titel
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: News
+        versionhistorycleanerdemo:author: Verfasser
+        versionhistorycleanerdemo:content: Inhalt
+        versionhistorycleanerdemo:date: Datum
+        versionhistorycleanerdemo:image: Abbildung
+        versionhistorycleanerdemo:introduction: Einführung
+        versionhistorycleanerdemo:location: Standort
+        versionhistorycleanerdemo:source: Quelle
+        versionhistorycleanerdemo:title: Titel
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Message d'info
+        versionhistorycleanerdemo:author: Auteur
+        versionhistorycleanerdemo:content: Contenu
+        versionhistorycleanerdemo:date: Date
+        versionhistorycleanerdemo:image: Image
+        versionhistorycleanerdemo:introduction: Introduction
+        versionhistorycleanerdemo:location: Lieu
+        versionhistorycleanerdemo:source: Source
+        versionhistorycleanerdemo:title: Titre

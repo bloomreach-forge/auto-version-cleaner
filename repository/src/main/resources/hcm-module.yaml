@@ -1,0 +1,5 @@
+group: hippo-cms
+project:
+    name: version-history-cleaner
+    after: [hippo-repository, hippo-cms]
+module: version-history-cleaner-repository

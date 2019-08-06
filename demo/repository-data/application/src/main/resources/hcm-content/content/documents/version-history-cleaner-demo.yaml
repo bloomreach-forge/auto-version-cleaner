@@ -1,0 +1,9 @@
+/content/documents/versionhistorycleanerdemo:
+  .meta:order-before: administration
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:referenceable']
+  jcr:uuid: ae32fd81-2b68-4083-92d9-ae3c1dc69862
+  hippo:name: BloomReach Version History Cleaner Demo
+  hippostd:foldertype: [new-translated-folder, new-document]
+  hippotranslation:id: 996bcac5-86cf-49b5-a7a3-16a74863e814
+  hippotranslation:locale: en

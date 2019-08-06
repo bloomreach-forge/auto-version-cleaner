@@ -1,0 +1,5 @@
+definitions:
+  namespace:
+    versionhistorycleanerdemo:
+      uri: http://www.versionhistorycleanerdemo.com/versionhistorycleanerdemo/nt/1.0
+      cnd: namespaces/version-history-cleaner-demo.cnd

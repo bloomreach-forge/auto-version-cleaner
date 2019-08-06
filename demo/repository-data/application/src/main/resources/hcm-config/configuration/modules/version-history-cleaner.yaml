@@ -1,0 +1,4 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/version-history-cleaner/hippo:moduleconfig:
+      default.max.revisions: 3

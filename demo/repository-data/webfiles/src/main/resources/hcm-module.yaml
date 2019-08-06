@@ -1,0 +1,5 @@
+group: 
+  name: version-history-cleaner-demo
+project: version-history-cleaner-demo
+module:
+  name: version-history-cleaner-demo-repository-data-webfiles

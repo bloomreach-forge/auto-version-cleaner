@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hippo:namespaces/versionhistorycleanerdemo/basedocument:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: f008cc38-e034-4988-a577-aa825c8db23f
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 11ac631b-52db-4570-b0a8-be915d50d684
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['hipposysedit:remodel']
+          hipposysedit:supertype: ['hippo:document', 'hippostdpubwf:document', 'hippostd:publishableSummary']
+          hipposysedit:uri: http://www.versionhistorycleanerdemo.com/versionhistorycleanerdemo/nt/1.0

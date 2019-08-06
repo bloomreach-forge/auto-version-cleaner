@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project>
+    <applicationSubModule>application</applicationSubModule>
+    <cmsDependenciesModule>cms-dependencies</cmsDependenciesModule>
+    <cmsModule>cms</cmsModule>
+    <confirmParams>false</confirmParams>
+    <developmentSubModule>development</developmentSubModule>
+    <enterprise>false</enterprise>
+    <extraTemplates>true</extraTemplates>
+    <hstRoot>/hst:versionhistorycleanerdemo</hstRoot>
+    <projectNamespace>versionhistorycleanerdemo</projectNamespace>
+    <repositoryDataModule>repository-data</repositoryDataModule>
+    <selectedBeansPackage>com.bloomreach.forge.versionhistory.demo.beans</selectedBeansPackage>
+    <selectedComponentsPackage>com.bloomreach.forge.versionhistory.demo.components</selectedComponentsPackage>
+    <selectedProjectPackage>com.bloomreach.forge.versionhistory.demo</selectedProjectPackage>
+    <selectedRestPackage>com.bloomreach.forge.versionhistory.demo.rest</selectedRestPackage>
+    <setupDone>true</setupDone>
+    <siteContextPath>/site</siteContextPath>
+    <siteModule>site</siteModule>
+    <useSamples>true</useSamples>
+    <webfileBundleName>site</webfileBundleName>
+    <webfilesSubModule>webfiles</webfilesSubModule>
+</project>

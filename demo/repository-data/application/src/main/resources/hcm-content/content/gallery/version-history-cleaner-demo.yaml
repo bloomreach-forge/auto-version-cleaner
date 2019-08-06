@@ -1,0 +1,7 @@
+/content/gallery/versionhistorycleanerdemo:
+  jcr:primaryType: hippogallery:stdImageGallery
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 0ba6920e-4fb4-413e-9c4c-b4edcf56f195
+  hippo:name: BloomReach Version History Cleaner Demo
+  hippostd:foldertype: [new-image-folder]
+  hippostd:gallerytype: ['hippogallery:imageset']
