@@ -95,7 +95,8 @@
         
 <p>
           BloomReach Version History Cleaner module is located and configured at
-          <tt>/hippo:configuration/hippo:modules/version-history-cleaner</tt>.
+          <tt>/hippo:configuration/hippo:modules/version-history-cleaner</tt>
+          like the following example in the demo project:
         </p>
         
 <div class="brush: plain">
@@ -106,7 +107,7 @@
   hipposys:className: com.bloomreach.forge.versionhistory.core.repository.DocumentHistoryCleanerDaemonModule
   /hippo:moduleconfig:
     jcr:primaryType: hipposys:moduleconfig
-    default.max.days: 0
+    default.max.days: -1
     default.max.revisions: 3
           </pre></div>
         </div>
@@ -135,10 +136,10 @@
               For example, if a version was created 10 days ago, and if this property is set to <tt>7</tt> (days),
               then the version will be removed automatically when the document is published.
               <br />
-              If this is set to zero or a negative integer, then this option is ignored.
+              If this is set to a negative integer, then this option is ignored.
             </td>
             
-<td>0</td>
+<td>-1</td>
           </tr>
           
 <tr class="a">
@@ -151,10 +152,10 @@
               then the 5 older versions will be removed automatically when the document is published, keeping the
               5 newer versions.
               <br />
-              If this is set to zero or a negative integer, then this option is ignored.
+              If this is set to a negative integer, then this option is ignored.
             </td>
             
-<td>0</td>
+<td>-1</td>
           </tr>
         </table>
 
@@ -185,10 +186,10 @@
 <td>
               The document type (<tt>myproject:newsdocument</tt>) specific configuration to override <tt>default.max.days</tt>.
               <br />
-              If this is set to zero or a negative integer, then this option is ignored.
+              If this is set to a negative integer, then this option is ignored.
             </td>
             
-<td>0</td>
+<td>-1</td>
           </tr>
           
 <tr class="a">
@@ -198,10 +199,10 @@
 <td>
               The document type (<tt>myproject:newsdocument</tt>) specific configuration to override <tt>default.max.revisions</tt>.
               <br />
-              If this is set to zero or a negative integer, then this option is ignored.
+              If this is set to a negative integer, then this option is ignored.
             </td>
             
-<td>0</td>
+<td>-1</td>
           </tr>
         </table>
 
