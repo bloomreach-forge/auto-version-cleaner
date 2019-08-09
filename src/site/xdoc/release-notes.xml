@@ -40,7 +40,7 @@
     </section>
     <section name="Release Notes of 1.x">
       <subsection name="1.0.0">
-        <p class="smallinfo">Coming soon...</p>
+        <p class="smallinfo">Release Date: 8 August 2019</p>
         <ul>
           <li>[<a href='https://issues.onehippo.com/browse/HIPFORGE-310'>HIPFORGE-310</a>] -         [Version History Cleaner] Initial Version History Cleaner Forge Module
           </li>
