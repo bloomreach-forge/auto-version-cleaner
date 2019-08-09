@@ -28,8 +28,7 @@
       <subsection name="Module Configuration Options">
         <p>
           BloomReach Version History Cleaner module is located and configured at
-          <code>/hippo:configuration/hippo:modules/version-history-cleaner</code>
-          like the following example in the demo project:
+          <code>/hippo:configuration/hippo:modules/version-history-cleaner</code> like the following:
         </p>
         <div class="brush: plain">
           <source><![CDATA[
@@ -39,7 +38,8 @@
   /hippo:moduleconfig:
     jcr:primaryType: hipposys:moduleconfig
     default.max.days: -1
-    default.max.revisions: 3
+    default.max.revisions: -1
+    default.truncate.ondelete: false
           ]]></source>
         </div>
 
@@ -74,6 +74,16 @@
             </td>
             <td>-1</td>
           </tr>
+          <tr>
+            <td>default.truncate.ondelete</td>
+            <td>
+              Flag whether or not to truncate the archived node in <code>/content/attic/...</code> and all the versions
+              when a document is deleted.
+              For example, if this is set to <code>true</code>, then when you delete a document, it truncates the archived node
+              in <code>/content/attic/...</code> and all the versions in the version history.
+            </td>
+            <td>false</td>
+          </tr>
         </table>
 
         <p>
@@ -106,6 +116,15 @@
               If this is set to a negative integer, then this option is ignored.
             </td>
             <td>-1</td>
+          </tr>
+          <tr>
+            <td>myproject:newsdocument.truncate.ondelete</td>
+            <td>
+              The document type (<code>myproject:newsdocument</code>) specific flag whether or not to truncate
+              the archived node in <code>/content/attic/...</code> and all the versions when a document of the specific type
+              is deleted.
+            </td>
+            <td>false</td>
           </tr>
         </table>
 

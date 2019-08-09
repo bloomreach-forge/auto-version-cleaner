@@ -39,6 +39,15 @@
       </table>
     </section>
     <section name="Release Notes of 1.x">
+      <subsection name="1.0.1">
+        <p class="smallinfo">Release Date: 9 August 2019</p>
+        <ul>
+          <li>[<a href='https://issues.onehippo.com/browse/HIPFORGE-311'>HIPFORGE-311</a>] -         [Version History Cleaner] Option to truncate the whole version history when document is deleted
+          </li>
+          <li>[<a href='https://issues.onehippo.com/browse/HIPFORGE-312'>HIPFORGE-312</a>] -         [Version History Cleaner] Option to truncate attic node when a document is removed
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.0.0">
         <p class="smallinfo">Release Date: 8 August 2019</p>
         <ul>

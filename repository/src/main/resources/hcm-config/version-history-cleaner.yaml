@@ -7,3 +7,4 @@ definitions:
         jcr:primaryType: hipposys:moduleconfig
         default.max.days: -1
         default.max.revisions: -1
+        default.truncate.ondelete: false
