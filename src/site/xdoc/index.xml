@@ -66,11 +66,14 @@ $ mvn clean verify && mvn -Pcargo.run
           documents, then you will notice the older versions being removed automatically in order to keep only 3
           versions in the version history.
           But, it will keep only up to 2 versions for <strong>Events</strong> documents.
+          Also, it will truncate the archived nodes and all the versions when a document is deleted
+          due to the configuration: <code>default.truncate.ondelete: true</code> (<code>false</code> by default).
         </p>
         <div class="brush: plain">
           <source><![CDATA[
 /hippo:configuration/hippo:modules/version-history-cleaner/hippo:moduleconfig:
   default.max.revisions: 3
+  default.truncate.ondelete: true
   versionhistorycleanerdemo:eventsdocument.max.revisions: 2
           ]]></source>
         </div>
