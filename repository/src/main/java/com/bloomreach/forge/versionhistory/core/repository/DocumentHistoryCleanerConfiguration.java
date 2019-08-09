@@ -32,6 +32,11 @@ public class DocumentHistoryCleanerConfiguration {
      */
     private long maxDays = -1L;
 
+    /**
+     * Whether or not to truncate all the version history when a document is deleted.
+     */
+    private boolean truncateOnDelete;
+
     public DocumentHistoryCleanerConfiguration() {
     }
 
@@ -49,6 +54,14 @@ public class DocumentHistoryCleanerConfiguration {
 
     public void setMaxRevisions(long maxRevisions) {
         this.maxRevisions = maxRevisions;
+    }
+
+    public boolean isTruncateOnDelete() {
+        return truncateOnDelete;
+    }
+
+    public void setTruncateOnDelete(boolean truncateOnDelete) {
+        this.truncateOnDelete = truncateOnDelete;
     }
 
 }

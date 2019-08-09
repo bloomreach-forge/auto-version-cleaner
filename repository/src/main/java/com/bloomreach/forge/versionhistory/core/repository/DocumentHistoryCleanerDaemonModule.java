@@ -46,6 +46,7 @@ public class DocumentHistoryCleanerDaemonModule extends AbstractReconfigurableDa
     protected void doConfigure(final Node moduleConfig) throws RepositoryException {
         defaultConfig.setMaxDays(JcrUtils.getLongProperty(moduleConfig, "default.max.days", -1L));
         defaultConfig.setMaxRevisions(JcrUtils.getLongProperty(moduleConfig, "default.max.revisions", -1L));
+        defaultConfig.setTruncateOnDelete(JcrUtils.getBooleanProperty(moduleConfig, "default.truncate.ondelete", false));
 
         documentTypeConfigs.clear();
 
@@ -67,6 +68,7 @@ public class DocumentHistoryCleanerDaemonModule extends AbstractReconfigurableDa
                     documentTypeConfig = new DocumentHistoryCleanerConfiguration();
                     documentTypeConfig.setMaxDays(defaultConfig.getMaxDays());
                     documentTypeConfig.setMaxRevisions(defaultConfig.getMaxRevisions());
+                    documentTypeConfig.setTruncateOnDelete(defaultConfig.isTruncateOnDelete());
                     documentTypeConfigs.put(docTypeName, documentTypeConfig);
                 }
 
@@ -76,6 +78,8 @@ public class DocumentHistoryCleanerDaemonModule extends AbstractReconfigurableDa
                     documentTypeConfig.setMaxDays(prop.getLong());
                 } else if ("max.revisions".equals(configPropName)) {
                     documentTypeConfig.setMaxRevisions(prop.getLong());
+                } else if ("truncate.ondelete".equals(configPropName)) {
+                    documentTypeConfig.setTruncateOnDelete(prop.getBoolean());
                 }
             }
         }

@@ -25,6 +25,7 @@ import javax.jcr.Session;
 import javax.jcr.SimpleCredentials;
 
 import org.hippoecm.repository.HippoStdNodeType;
+import org.hippoecm.repository.api.HippoNodeType;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.event.HippoEventConstants;
 import org.onehippo.cms7.services.eventbus.Subscribe;
@@ -33,6 +34,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.bloomreach.forge.versionhistory.core.DocumentHistoryCleanerTask;
+import com.bloomreach.forge.versionhistory.core.DocumentHistoryTruncaterTask;
 
 /**
  * EventBus event listener, which listens to document publication events and invokes {@link DocumentHistoryCleanerTask}
@@ -65,16 +67,25 @@ public class DocumentHistoryCleanerListener {
         }
 
         final HippoWorkflowEvent<?> wfEvent = (HippoWorkflowEvent<?>) event;
-        final String action = wfEvent.action();
+        final String workflowName = wfEvent.workflowName();
 
-        if (!"publish".equals(action)) {
+        if ("folder".equals(workflowName)) {
             return;
         }
 
+        final String action = event.action();
         final String documentType = wfEvent.documentType();
         final String subjectId = wfEvent.subjectId();
         final String subjectPath = wfEvent.subjectPath();
 
+        if ("publish".equals(action)) {
+            cleanUpOldVersions(subjectId, subjectPath, documentType);
+        } else if ("delete".equals(action)) {
+            truncateAllVersions(subjectId, subjectPath, documentType);
+        }
+    }
+
+    private void cleanUpOldVersions(final String subjectId, final String subjectPath, final String documentType) {
         final DocumentHistoryCleanerConfiguration docTypeConfig = documentTypeConfigs.get(documentType);
         final long maxDays = (docTypeConfig != null) ? docTypeConfig.getMaxDays() : defaultConfig.getMaxDays();
         final long maxRevisions = (docTypeConfig != null) ? docTypeConfig.getMaxRevisions()
@@ -85,10 +96,10 @@ public class DocumentHistoryCleanerListener {
         try {
             session = daemonSession.impersonate(SYSTEM_CREDENTIALS);
 
-            final Node documentHandleNode = session.getNodeByIdentifier(subjectId);
-            final Node previewVariantNode = getPreviewVariantNode(documentHandleNode);
+            final Node handleNode = session.getNodeByIdentifier(subjectId);
+            final Node versionableNode = findVersionableNode(handleNode);
 
-            final DocumentHistoryCleanerTask task = new DocumentHistoryCleanerTask(session, previewVariantNode);
+            final DocumentHistoryCleanerTask task = new DocumentHistoryCleanerTask(session, versionableNode);
             task.setMaxDays(maxDays);
             task.setMaxRevisions(maxRevisions);
             task.execute();
@@ -109,11 +120,55 @@ public class DocumentHistoryCleanerListener {
         }
     }
 
-    private Node getPreviewVariantNode(final Node handle) throws RepositoryException {
+    private void truncateAllVersions(final String subjectId, final String subjectPath, final String documentType) {
+        final DocumentHistoryCleanerConfiguration docTypeConfig = documentTypeConfigs.get(documentType);
+        final boolean truncateOnDelete = (docTypeConfig != null) ? docTypeConfig.isTruncateOnDelete()
+                : defaultConfig.isTruncateOnDelete();
+
+        if (!truncateOnDelete) {
+            return;
+        }
+
+        Session session = null;
+
+        try {
+            session = daemonSession.impersonate(SYSTEM_CREDENTIALS);
+
+            final Node handleNode = session.getNodeByIdentifier(subjectId);
+            final Node versionableNode = findVersionableNode(handleNode);
+
+            final DocumentHistoryTruncaterTask task = new DocumentHistoryTruncaterTask(session, versionableNode);
+            task.execute();
+
+            session.save();
+        } catch (Exception e) {
+            log.error("Failed to truncate revision history for the document () at {}.", subjectId, subjectPath, e);
+
+            try {
+                session.refresh(false);
+            } catch (RepositoryException re) {
+                log.error("Failed to refresh session.", re);
+            }
+        } finally {
+            if (session != null) {
+                session.logout();
+            }
+        }
+    }
+
+    private Node findVersionableNode(final Node handle) throws RepositoryException {
         for (NodeIterator nodeIt = handle.getNodes(handle.getName()); nodeIt.hasNext();) {
             final Node node = nodeIt.nextNode();
 
             if (node != null && isPreviewVariantNode(node)) {
+                return node;
+            }
+        }
+
+        for (NodeIterator nodeIt = handle.getNodes(handle.getName()); nodeIt.hasNext();) {
+            final Node node = nodeIt.nextNode();
+
+            if (node != null && node.isNodeType(HippoNodeType.NT_DELETED) && node.isNodeType("mix:versionable")) {
                 return node;
             }
         }
