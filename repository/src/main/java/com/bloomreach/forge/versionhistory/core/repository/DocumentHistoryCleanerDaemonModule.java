@@ -65,6 +65,8 @@ public class DocumentHistoryCleanerDaemonModule extends AbstractReconfigurableDa
 
                 if (documentTypeConfig == null) {
                     documentTypeConfig = new DocumentHistoryCleanerConfiguration();
+                    documentTypeConfig.setMaxDays(defaultConfig.getMaxDays());
+                    documentTypeConfig.setMaxRevisions(defaultConfig.getMaxRevisions());
                     documentTypeConfigs.put(docTypeName, documentTypeConfig);
                 }
 

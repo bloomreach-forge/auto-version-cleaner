@@ -61,10 +61,19 @@ $ mvn clean verify && mvn -Pcargo.run
           ]]></source>
         </div>
         <p>
-          The demo project is configured with <code>default.max.revisions: 3</code>.
-          So, if you edit and re-publish a document more than three times, you will notice the older versions
-          being removed automatically in order to keep only 3 versions in history.
+          The demo project is configured like the following.
+          So, if you edit and re-publish any documents more than three times, other than <strong>Events</strong>
+          documents, then you will notice the older versions being removed automatically in order to keep only 3
+          versions in the version history.
+          But, it will keep only up to 2 versions for <strong>Events</strong> documents.
         </p>
+        <div class="brush: plain">
+          <source><![CDATA[
+/hippo:configuration/hippo:modules/version-history-cleaner/hippo:moduleconfig:
+  default.max.revisions: 3
+  versionhistorycleanerdemo:eventsdocument.max.revisions: 2
+          ]]></source>
+        </div>
       </subsection>
 
     </section>
