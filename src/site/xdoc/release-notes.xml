@@ -43,8 +43,8 @@
       </table>
     </section>
     <section name="Release Notes of 2.x">
-      <subsection name="2.0.0">
-        <p class="smallinfo">Release Date: 18 April 2024</p>
+      <subsection name="2.0.1">
+        <p class="smallinfo">Release Date: 13 May 2024</p>
         <ul>
           <li>[<a href='https://issues.onehippo.com/browse/FORGE-432'>FORGE-432</a>] -               [Version History Cleaner] Upgrade to Experience Manager 14
           </li>
