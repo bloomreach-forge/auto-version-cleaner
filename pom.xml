@@ -21,7 +21,7 @@
   <description>BloomReach Version History Cleaner</description>
   <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
   <artifactId>version-history-cleaner</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>3.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <url>https://github.com/bloomreach-forge/version-history-cleaner</url>
 
@@ -29,12 +29,12 @@
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <project.build.javaVersion>1.8</project.build.javaVersion>
+    <project.build.javaVersion>11</project.build.javaVersion>
 
     <javax.jcr.version>2.0</javax.jcr.version>
 
-    <hippo.repository.version>14.7.19</hippo.repository.version>
-    <hippo.services.version>14.7.19</hippo.services.version>
+    <hippo.repository.version>15.5.0</hippo.repository.version>
+    <hippo.services.version>15.5.0</hippo.services.version>
 
     <commons-lang3.version>3.12.0</commons-lang3.version>
 
@@ -100,7 +100,7 @@
     <repository>
       <name>Hippo Maven 2 Forge Repository</name>
       <id>hippo-maven2-forge</id>
-      <url>https://maven.onehippo.com/content/repositories/forge-releases/</url>
+      <url>https://maven.bloomreach.com/content/repositories/forge-releases/</url>
       <uniqueVersion>false</uniqueVersion>
     </repository>
   </distributionManagement>
@@ -118,12 +118,12 @@
     <repository>
       <id>hippo</id>
       <name>Hippo Maven 2 Repository</name>
-      <url>https://maven.onehippo.com/maven2/</url>
+      <url>https://maven.bloomreach.com/maven2/</url>
     </repository>
     <repository>
       <id>hippo-maven2-forge</id>
       <name>Hippo Maven 2 Forge Repository</name>
-      <url>https://maven.onehippo.com/maven2-forge/</url>
+      <url>https://maven.bloomreach.com/maven2-forge/</url>
       <snapshots />
     </repository>
   </repositories>
