@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>15.5.0</version>
+    <version>15.6.0</version>
     <relativePath />
   </parent>
 
@@ -13,7 +13,7 @@
   <description>BloomReach Version History Cleaner Demo</description>
   <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
   <artifactId>version-history-cleaner-demo</artifactId>
-  <version>3.0.0-SNAPSHOT</version>
+  <version>3.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <!-- 
@@ -66,7 +66,7 @@
 
     <version-history-cleaner.version>${project.version}</version-history-cleaner.version>
 
-    <essentials.version>15.5.0</essentials.version>
+    <essentials.version>15.6.0</essentials.version>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.5</taglibs.version>
 
@@ -76,6 +76,10 @@
 
     <hippo.cms.locales>nl,de,fr,es,zh</hippo.cms.locales>
     <buildNumber>${maven.build.timestamp}</buildNumber>
+
+
+    <cargo.jvm.args>-Xms1024m -Xmx4g</cargo.jvm.args>
+
   </properties>
 
   <repositories>
