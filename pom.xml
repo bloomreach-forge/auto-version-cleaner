@@ -21,7 +21,7 @@
   <description>BloomReach Version History Cleaner</description>
   <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
   <artifactId>version-history-cleaner</artifactId>
-  <version>3.0.1-SNAPSHOT</version>
+  <version>3.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <url>https://github.com/bloomreach-forge/version-history-cleaner</url>
 
@@ -33,8 +33,8 @@
 
     <javax.jcr.version>2.0</javax.jcr.version>
 
-    <hippo.repository.version>15.5.0</hippo.repository.version>
-    <hippo.services.version>15.5.0</hippo.services.version>
+    <hippo.repository.version>15.6.0</hippo.repository.version>
+    <hippo.services.version>15.6.0</hippo.services.version>
 
     <commons-lang3.version>3.12.0</commons-lang3.version>
 
@@ -142,6 +142,13 @@
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-repository-api</artifactId>
+        <version>${hippo.repository.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.onehippo.cms7</groupId>
+        <artifactId>hippo-repository-engine</artifactId>
         <version>${hippo.repository.version}</version>
         <scope>provided</scope>
       </dependency>
