@@ -33,6 +33,10 @@
           </th>
         </tr>
         <tr>
+          <td>4.x</td>
+          <td>16.x</td>
+        </tr>
+        <tr>
           <td>3.x</td>
           <td>15.x</td>
         </tr>
@@ -45,6 +49,17 @@
           <td>13.x</td>
         </tr>
       </table>
+    </section>
+    <section name="Release Notes of 4.x">
+      <subsection name="3.0.0">
+        <p class="smallinfo">Release Date: 6 August 2024</p>
+        <ul>
+          <li>
+            <a href='https://issues.onehippo.com/browse/FORGE-544'>FORGE-544</a>
+            Upgrade to Bloomreach Experience Manager 16, JDK 17.
+          </li>
+        </ul>
+      </subsection>
     </section>
     <section name="Release Notes of 3.x">
       <subsection name="3.0.0">
