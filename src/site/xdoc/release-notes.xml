@@ -51,7 +51,13 @@
       </table>
     </section>
     <section name="Release Notes of 4.x">
-      <subsection name="3.0.0">
+      <subsection name="4.0.1">
+        <p class="smallinfo">Release Date: 6 August 2024</p>
+        <ul>
+          <li>Fix docs</li>
+        </ul>
+      </subsection>
+      <subsection name="4.0.0">
         <p class="smallinfo">Release Date: 6 August 2024</p>
         <ul>
           <li>
