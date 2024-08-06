@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2019 BloomReach, Inc. (https://www.bloomreach.com)
+  Copyright 2019-2024 BloomReach, Inc. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -17,59 +17,48 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>org.onehippo.cms7</groupId>
+    <artifactId>hippo-cms7-project</artifactId>
+    <version>16.0.0</version>
+  </parent>
+
   <name>BloomReach Version History Cleaner</name>
   <description>BloomReach Version History Cleaner</description>
   <groupId>com.bloomreach.forge.version-history-cleaner</groupId>
   <artifactId>version-history-cleaner</artifactId>
-  <version>1.0.1</version>
+  <version>4.0.0</version>
   <packaging>pom</packaging>
   <url>https://github.com/bloomreach-forge/version-history-cleaner</url>
 
   <properties>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.build.javaVersion>1.8</project.build.javaVersion>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <project.build.javaVersion>17</project.build.javaVersion>
 
-    <javax.jcr.version>2.0</javax.jcr.version>
 
-    <hippo.repository.version>13.0.0</hippo.repository.version>
-    <hippo.services.version>13.0.0</hippo.services.version>
 
-    <commons-lang.version>2.6</commons-lang.version>
-
-    <lib.junit.version>4.12</lib.junit.version>
-    <lib.easymock.version>3.4</lib.easymock.version>
-    <lib.slf4j.version>1.7.25</lib.slf4j.version>
-    <lib.log4j2.version>2.8.2</lib.log4j2.version>
-
-    <plugin.compiler.version>3.1</plugin.compiler.version>
-    <plugin.clean.version>2.5</plugin.clean.version>
-    <plugin.deploy.version>2.8.1</plugin.deploy.version>
-    <plugin.install.version>2.5.1</plugin.install.version>
-    <plugin.jar.version>2.4</plugin.jar.version>
-    <plugin.javadoc.version>2.9.1</plugin.javadoc.version>
-    <plugin.jxr.version>2.3</plugin.jxr.version>
-    <plugin.pmd.version>3.1</plugin.pmd.version>
-    <plugin.project-info-reports.version>2.7</plugin.project-info-reports.version>
-    <plugin.release.version>2.5</plugin.release.version>
-    <plugin.resources.version>2.6</plugin.resources.version>
-    <plugin.site.version>3.6</plugin.site.version>
-    <plugin.source.version>2.2.1</plugin.source.version>
-    <plugin.surefire.version>2.17</plugin.surefire.version>
-    <plugin.surefire-report.version>2.17</plugin.surefire-report.version>
-
-    <plugin.checkstyle.version>2.6</plugin.checkstyle.version>
-    <plugin.cobertura.version>2.4</plugin.cobertura.version>
-    <plugin.findbugs.version>2.3.2</plugin.findbugs.version>
-
-    <extension.wagon-svn.version>1.9</extension.wagon-svn.version>
+    <plugin.compiler.version>3.13.0</plugin.compiler.version>
+    <plugin.clean.version>3.4.0</plugin.clean.version>
+    <plugin.deploy.version>3.1.2</plugin.deploy.version>
+    <plugin.install.version>3.1.1</plugin.install.version>
+    <plugin.jar.version>3.4.2</plugin.jar.version>
+    <plugin.javadoc.version>3.6.3</plugin.javadoc.version>
+    <plugin.jxr.version>3.4.0</plugin.jxr.version>
+    <plugin.pmd.version>3.23.0</plugin.pmd.version>
+    <plugin.project-info-reports.version>3.6.2</plugin.project-info-reports.version>
+    <plugin.resources.version>3.3.1</plugin.resources.version>
+    <plugin.site.version>3.12.1</plugin.site.version>
+    <plugin.source.version>3.3.1</plugin.source.version>
+    <plugin.surefire.version>3.3.1</plugin.surefire.version>
 
   </properties>
 
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -97,9 +86,9 @@
 
   <distributionManagement>
     <repository>
-      <name>Hippo Maven 2 Forge Repository</name>
-      <id>hippo-maven2-forge</id>
-      <url>https://maven.onehippo.com/content/repositories/forge-releases/</url>
+      <name>Bloomreach Maven 2 Forge Repository</name>
+      <id>bloomreach-maven2-forge</id>
+      <url>https://maven.bloomreach.com/content/repositories/forge-releases/</url>
       <uniqueVersion>false</uniqueVersion>
     </repository>
   </distributionManagement>
@@ -107,22 +96,17 @@
   <issueManagement>
     <url>https://issues.onehippo.com/projects/HIPFORGE</url>
   </issueManagement>
-
-  <ciManagement>
-    <system>Travic CI</system>
-    <url>https://travis-ci.org/bloomreach-forge/version-history-cleaner</url>
-  </ciManagement>
-
+  
   <repositories>
     <repository>
       <id>hippo</id>
       <name>Hippo Maven 2 Repository</name>
-      <url>http://maven.onehippo.com/maven2/</url>
+      <url>https://maven.bloomreach.com/maven2/</url>
     </repository>
     <repository>
       <id>hippo-maven2-forge</id>
       <name>Hippo Maven 2 Forge Repository</name>
-      <url>http://maven.onehippo.com/maven2-forge/</url>
+      <url>https://maven.bloomreach.com/maven2-forge/</url>
       <snapshots />
     </repository>
   </repositories>
@@ -141,35 +125,35 @@
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-repository-api</artifactId>
-        <version>${hippo.repository.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-repository-builtin</artifactId>
-        <version>${hippo.repository.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-services</artifactId>
-        <version>${hippo.services.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
-        <version>${lib.slf4j.version}</version>
+        <version>${slf4j.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-ext</artifactId>
-        <version>${lib.slf4j.version}</version>
+        <version>${slf4j.version}</version>
         <exclusions>
           <exclusion>
             <groupId>org.slf4j</groupId>
@@ -179,9 +163,9 @@
       </dependency>
 
       <dependency>
-        <groupId>commons-lang</groupId>
-        <artifactId>commons-lang</artifactId>
-        <version>${commons-lang.version}</version>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3.version}</version>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
@@ -195,46 +179,46 @@
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>jcl-over-slf4j</artifactId>
-        <version>${lib.slf4j.version}</version>
+        <version>${slf4j.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-slf4j-impl</artifactId>
-        <version>${lib.log4j2.version}</version>
+        <version>${log4j2.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-api</artifactId>
-        <version>${lib.log4j2.version}</version>
+        <version>${log4j2.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-core</artifactId>
-        <version>${lib.log4j2.version}</version>
+        <version>${log4j2.version}</version>
         <scope>test</scope>
       </dependency>
       <!-- only (should) be needed to (test)compile log4j1.x (backward compatible) usages -->
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-1.2-api</artifactId>
-        <version>${lib.log4j2.version}</version>
+        <version>${log4j2.version}</version>
         <scope>test</scope>
       </dependency>
 
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>${lib.junit.version}</version>
+        <version>${junit.version}</version>
         <scope>test</scope>
       </dependency>
 
       <dependency>
         <groupId>org.easymock</groupId>
         <artifactId>easymock</artifactId>
-        <version>${lib.easymock.version}</version>
+        <version>${easymock.version}</version>
         <scope>test</scope>
       </dependency>
 
@@ -291,7 +275,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>${plugin.surefire-report.version}</version>
+        <version>${plugin.surefire.version}</version>
       </plugin>
     </plugins>
   </reporting>
@@ -361,13 +345,6 @@
       </plugin>
     </plugins>
 
-    <extensions>
-      <extension>
-        <groupId>org.jvnet.wagon-svn</groupId>
-        <artifactId>wagon-svn</artifactId>
-        <version>${extension.wagon-svn.version}</version>
-      </extension>
-    </extensions>
 
   </build>
 

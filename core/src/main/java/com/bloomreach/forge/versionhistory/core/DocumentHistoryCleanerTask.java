@@ -1,5 +1,5 @@
 /*
- *  Copyright 2019 BloomReach, Inc. (https://www.bloomreach.com)
+ *  Copyright 2019-2024 BloomReach, Inc. (https://www.bloomreach.com)
  * 
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ import javax.jcr.version.VersionHistory;
 import javax.jcr.version.VersionIterator;
 import javax.jcr.version.VersionManager;
 
-import org.apache.commons.lang.time.DateFormatUtils;
+import org.apache.commons.lang3.time.DateFormatUtils;
 
 /**
  * Document version history cleaner task.
