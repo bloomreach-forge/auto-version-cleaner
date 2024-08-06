@@ -39,19 +39,12 @@
 
 
 
-    <plugin.compiler.version>3.13.0</plugin.compiler.version>
-    <plugin.clean.version>3.4.0</plugin.clean.version>
-    <plugin.deploy.version>3.1.2</plugin.deploy.version>
-    <plugin.install.version>3.1.1</plugin.install.version>
-    <plugin.jar.version>3.4.2</plugin.jar.version>
-    <plugin.javadoc.version>3.6.3</plugin.javadoc.version>
-    <plugin.jxr.version>3.4.0</plugin.jxr.version>
-    <plugin.pmd.version>3.23.0</plugin.pmd.version>
-    <plugin.project-info-reports.version>3.6.2</plugin.project-info-reports.version>
-    <plugin.resources.version>3.3.1</plugin.resources.version>
-    <plugin.site.version>3.12.1</plugin.site.version>
-    <plugin.source.version>3.3.1</plugin.source.version>
-    <plugin.surefire.version>3.3.1</plugin.surefire.version>
+    <maven.plugin.site.version>3.12.1</maven.plugin.site.version>
+    <maven.plugin.source.version>3.3.0</maven.plugin.source.version>
+    <maven.plugin.compiler.version>3.13.0</maven.plugin.compiler.version>
+    <maven.plugin.jar.version>3.4.2</maven.plugin.jar.version>
+    <maven.plugin.surefire.version>3.3.1</maven.plugin.surefire.version>
+    <maven.plugin.jxr.version>3.4.0</maven.plugin.jxr.version>
 
   </properties>
 
@@ -231,133 +224,102 @@
     <module>repository</module>
   </modules>
 
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>${plugin.project-info-reports.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jxr-plugin</artifactId>
-        <version>${plugin.jxr.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-pmd-plugin</artifactId>
-        <version>${plugin.pmd.version}</version>
-        <configuration>
-          <linkXref>true</linkXref>
-          <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
-          <targetJdk>${project.build.javaVersion}</targetJdk>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${plugin.javadoc.version}</version>
-        <configuration>
-          <encoding>${project.build.sourceEncoding}</encoding>
-          <skip>false</skip>
-          <aggregate>true</aggregate>
-        </configuration>
-        <reportSets>
-          <reportSet>
-            <id>default</id>
-            <reports>
-              <report>javadoc</report>
-              <report>test-javadoc</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>${plugin.surefire.version}</version>
-      </plugin>
-    </plugins>
-  </reporting>
 
   <build>
-
     <defaultGoal>package</defaultGoal>
-
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${plugin.compiler.version}</version>
-        <configuration>
-          <source>${project.build.javaVersion}</source>
-          <target>${project.build.javaVersion}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-clean-plugin</artifactId>
-        <version>${plugin.clean.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>${plugin.install.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>${plugin.deploy.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>${plugin.jar.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${plugin.surefire.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>${plugin.resources.version}</version>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>${plugin.site.version}</version>
+        <version>${maven.plugin.site.version}</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>${plugin.source.version}</version>
+        <version>${maven.plugin.source.version}</version>
+        <inherited>true</inherited>
         <executions>
           <execution>
             <id>attach-sources</id>
-            <phase>verify</phase>
             <goals>
-              <goal>jar-no-fork</goal>
+              <goal>jar</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.plugin.compiler.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.plugin.jar.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <forkMode>always</forkMode>
+          <workingDirectory>${project.build.directory}</workingDirectory>
+        </configuration>
+      </plugin>
     </plugins>
-
-
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven.plugin.surefire.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
+  <reporting>
+    <outputDirectory>target/site</outputDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven.plugin.javadoc.version}</version>
+        <configuration>
+          <source>1.8</source>
+          <links>
+            <link>http://download.oracle.com/javase/6/docs/api</link>
+          </links>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>${maven.plugin.jxr.version}</version>
+        <reportSets>
+          <reportSet>
+            <id>src-xref</id>
+            <reports>
+              <report>jxr</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+        <configuration>
+          <aggregate>true</aggregate>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+
   <profiles>
-    <!-- Only for generating/publishing GitHub Site Pages into docs/ folder from master branch. -->
     <profile>
+      <!-- For generating/publishing GitHub Site Pages into /docs/ folder on master branch only -->
       <id>github.pages</id>
       <build>
         <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-site-plugin</artifactId>
-            <version>${plugin.site.version}</version>
+            <version>${maven.plugin.site.version}</version>
             <configuration>
               <outputDirectory>docs</outputDirectory>
             </configuration>
@@ -366,5 +328,7 @@
       </build>
     </profile>
   </profiles>
+
+
 
 </project>
